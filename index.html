@@ -2,13 +2,16 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta property="og:title" content="ColerViewer" />
+    <meta property="og:site_name" content="https://redmen4772.github.io/color/" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/svg+xml" href="./vite.svg" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script type="module" crossorigin src="./assets/index.37abf4d4.js"></script>
-    <link rel="stylesheet" href="./assets/index.2b25b9f9.css">
+    <script type='text/javascript' src='http://code.jquery.com/jquery-1.8.2.js'></script>
+    <script type="module" crossorigin src="/assets/index.313875b4.js"></script>
+    <link rel="stylesheet" href="/assets/index.2b25b9f9.css">
   </head>
   <style>
     *{
@@ -24,5 +27,25 @@
   <body>
     <div id="app"></div>
     
+    <script type='text/javascript'>
+      $(document).ready(function(){
+        $('head').append( `<meta property="og:description" content=${/^#([0-9a-f]{3}){1,2}$/i.test(location.hash)?location.hash:'Invalid Hex Color Code'} />` );
+      });
+    </script>
+    <script type='text/javascript'>
+      $(document).ready(function(){
+        $('head').append( `<meta property="og:image" content=${/^#([0-9a-f]{3}){1,2}$/i.test(location.hash)?`https://singlecolorimage.com/get/${location.hash.replace('#','')}/300x100`:''} />` );
+      });
+    </script>
+    <script type='text/javascript'>
+      $(document).ready(function(){
+        $('head').append( `<meta name="twitter:image" content=${/^#([0-9a-f]{3}){1,2}$/i.test(location.hash)?`https://singlecolorimage.com/get/${location.hash.replace('#','')}/300x100`:''} />` );
+      });
+    </script>
+    <script type='text/javascript'>
+      $(document).ready(function(){
+        $('head').append( `<meta name="theme-color" content=${/^#([0-9a-f]{3}){1,2}$/i.test(location.hash)?location.hash:'#000000'} />` );
+      });
+    </script>
   </body>
 </html>
